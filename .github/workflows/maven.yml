@@ -21,7 +21,7 @@ jobs:
         SONAR_TOKEN: 2b4cdc1b2a09b8ed06fe002b2f9fd6c121804ba5 
       with:
         # Set the sonar.projectBaseDir analysis property
-        projectBaseDir: stream # optional, default is .
+        projectBaseDir: stream/ # optional, default is .
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
