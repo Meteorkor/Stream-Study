@@ -58,12 +58,14 @@ public class StreamSubCreateTest {
 
     @Test
     void streamGenerate() {
+
+        int limit = 15;
         Supplier<Integer> supplier = new Supplier<>() {
             private int cnt = 0;
 
             @Override
             public Integer get() {
-                if (cnt == 100) return null;
+                if (cnt == limit) return null;
                 return cnt++;
             }
         };
@@ -71,7 +73,7 @@ public class StreamSubCreateTest {
         //generate에 지정된 supplier는 null을 리턴하더라도 계속 반환
         //결국 limit으로 제어를 해야함
         Stream.generate(supplier)
-                .limit(120)
+                .limit(limit)
                 .forEach(s -> System.out.println("s : " + s));
     }
 
@@ -79,9 +81,9 @@ public class StreamSubCreateTest {
     void streamIterate() {
         //(final T seed, final UnaryOperator<T> f)
         //limit 없으면 null을 리턴하더라도 반복됨
-        int limitCnt = 100;
+        int limitCnt = 10;
         Stream.iterate(0, val -> {
-            if (val == null || val == 100) return null;
+            if (val == null || val == limitCnt) return null;
             return val + 1;
         })
                 .limit(limitCnt)
@@ -89,7 +91,7 @@ public class StreamSubCreateTest {
 
         //JDK9, limit 없어도 정상 동작
         //(T seed, Predicate<? super T> hasNext, UnaryOperator<T> next)
-        Stream.iterate(0, (val) -> val != null && val != 100, val -> val + 1)
+        Stream.iterate(0, (val) -> val != null && val != limitCnt, val -> val + 1)
                 .forEach(s -> System.out.println("s : " + s));
     }
 

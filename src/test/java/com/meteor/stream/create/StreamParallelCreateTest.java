@@ -24,7 +24,8 @@ public class StreamParallelCreateTest {
 
                 long cnt = bufferedReader.lines()
                         .parallel()
-                        .peek(s -> System.out.println("line : " + s)).count();
+//                        .peek(s -> System.out.println("line : " + s))
+                        .count();
                 System.out.println("cnt : " + cnt);
                 Assertions.assertEquals(100000, cnt);
                 //100000
@@ -41,7 +42,7 @@ public class StreamParallelCreateTest {
         int asInt = IntStream.rangeClosed(1, endInt)
                 .parallel()
                 .reduce((num1, num2) -> {
-                    System.out.println(String.format(Thread.currentThread() + "] num1 : %d, num2 : %d", num1, num2));
+//                    System.out.println(String.format(Thread.currentThread() + "] num1 : %d, num2 : %d", num1, num2));
                     return num1 + num2;
                 })
                 .orElseThrow(()->new NoSuchElementException(""));
@@ -57,7 +58,7 @@ public class StreamParallelCreateTest {
         int asInt = IntStream.rangeClosed(1, endInt)
                 .boxed().parallel()
                 .reduce((num1, num2) -> {
-                    System.out.println(String.format(Thread.currentThread() + "] num1 : %d, num2 : %d", num1, num2));
+//                    System.out.println(String.format(Thread.currentThread() + "] num1 : %d, num2 : %d", num1, num2));
                     return num1 + num2;
                 })
                 .orElseThrow(()->new NoSuchElementException(""));
