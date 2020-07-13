@@ -17,6 +17,8 @@ jobs:
     steps:
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.3
+      env:
+        SONAR_TOKEN: 2b4cdc1b2a09b8ed06fe002b2f9fd6c121804ba5 
       with:
         # Set the sonar.projectBaseDir analysis property
         projectBaseDir: .stream # optional, default is .
