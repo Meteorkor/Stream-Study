@@ -4,3 +4,4 @@ jdk:
 branches:
   only:
   - master
+script: "./stream/mvn clean install"
