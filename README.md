@@ -25,7 +25,6 @@
   * Stream.concat()
 * 기본타입(IntStream, LongStream), String, 파일 스트림(BytesReader)
 * 병렬스트림
-* StreamSupport(추후)
 
 # 가공(transformer)
 * Filtering
@@ -59,3 +58,9 @@
     * {A,B,C}.peek().map().count() 의 경우 peek와 map이 count()에 영향을 주지 않기 때문에 동작하지 않을 수 있음
       * unit-test에서는 동작하지 않았으나 travis-ci에서는 동작하던...
     * {A,B,C}.peek().map() , terminal(결과처리들, calc, reduce, collect 등) 호출이 없을 경우 결국 peek나 map나 의미가 없기 때문에 수행되지 않음
+
+# 더 살펴볼 내용
+* StreamSupport(추후)
+* Iterator to Stream
+* Spliterator
+
