@@ -14,6 +14,6 @@ public class EmpDto implements Comparable<EmpDto> {
     @Override
     public int compareTo(EmpDto o) {
 
-        return (int) (o.getEmpno() - this.getEmpno());
+        return (int) (this.getEmpno() - o.getEmpno());
     }
 }
