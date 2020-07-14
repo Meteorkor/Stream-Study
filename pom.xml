@@ -61,6 +61,7 @@
 				<artifactId>coveralls-maven-plugin</artifactId>
 				<version>4.3.0</version>
 				<configuration>
+					<!--추후 빌드 수행시 옵션으로 뺄 예정-->
 					<repoToken>dsR8ErmjSVkyHR1xUsFYscfMcynnEIzkV</repoToken>
 				</configuration>
 			</plugin>
