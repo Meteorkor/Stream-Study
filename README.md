@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Meteorkor/Stream-Study.svg?branch=master)](https://travis-ci.org/Meteorkor/Stream-Study)
+[![Coverage Status](https://coveralls.io/repos/github/Meteorkor/Stream-Study/badge.svg?branch=master)](https://coveralls.io/github/Meteorkor/Stream-Study?branch=master)
 # Stream-Study
 
 # 스트림, 데이터의 흐름
