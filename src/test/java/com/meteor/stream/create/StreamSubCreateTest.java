@@ -60,7 +60,7 @@ public class StreamSubCreateTest {
     void streamGenerate() {
 
         int limit = 15;
-        Supplier<Integer> supplier = new Supplier<>() {
+        Supplier<Integer> supplier = new Supplier<Integer>() {
             private int cnt = 0;
 
             @Override
@@ -91,8 +91,8 @@ public class StreamSubCreateTest {
 
         //JDK9, limit 없어도 정상 동작
         //(T seed, Predicate<? super T> hasNext, UnaryOperator<T> next)
-        Stream.iterate(0, (val) -> val != null && val != limitCnt, val -> val + 1)
-                .forEach(s -> System.out.println("s : " + s));
+//        Stream.iterate(0, (val) -> val != null && val != limitCnt, val -> val + 1)
+//                .forEach(s -> System.out.println("s : " + s));
     }
 
     @Test
