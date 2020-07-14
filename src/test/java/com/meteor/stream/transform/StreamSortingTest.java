@@ -10,14 +10,13 @@ import java.util.List;
 public class StreamSortingTest {
 
     @Test
-    void objMapTest() {
+    void objSortTest() {
         {
-            List<EmpDto> empList = Arrays.asList(EmpDto.builder().empno(1).ename("kim").salary(100).build()
-                    , EmpDto.builder().empno(2).ename("lee").salary(100).build()
+            List<EmpDto> empList = Arrays.asList(
+                    EmpDto.builder().empno(2).ename("lee").salary(100).build()
+                    , EmpDto.builder().empno(1).ename("kim").salary(100).build()
                     , EmpDto.builder().empno(3).ename("park").salary(500).build());
-            empList.stream().sorted().forEach(s->{
-
-            });
+            empList.stream().sorted().forEach(s -> System.out.println("s : " + s));
 
             long sum = empList.stream().map(EmpDto::getSalary)
                     .reduce(Long::sum).get();
