@@ -4,4 +4,6 @@ jdk:
 branches:
   only:
   - master
-script: "./stream/mvn clean install"
+before_install:
+  - chmod +x mvnw
+#script: "./stream/mvn clean install"
