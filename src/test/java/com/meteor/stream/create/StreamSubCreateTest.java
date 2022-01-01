@@ -2,6 +2,8 @@ package com.meteor.stream.create;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.concurrent.ListenableFutureTask;
+import org.springframework.util.concurrent.SettableListenableFuture;
 
 import java.util.NoSuchElementException;
 import java.util.function.Supplier;
@@ -52,8 +54,19 @@ public class StreamSubCreateTest {
 
     @Test
     void streamEmpty() {
-        //Stream.empty는 어디에 써야하나..?
-        Stream.empty().forEach(s -> System.out.println("s : " + s));
+        SettableListenableFuture future = new SettableListenableFuture<Boolean>();
+        //empty 이후에는 transform은 동작하지 않음
+        Stream.empty().forEach(s -> future.set(true));
+        Assertions.assertFalse(future.isDone());
+    }
+
+    @Test
+    void streamEmptyCase() {
+        long count = Stream.of("a", "b", "c").flatMap((ch) -> {
+            //Stream to EmptyStream
+            return Stream.empty();
+        }).count();
+        Assertions.assertEquals(count, 0);
     }
 
     @Test
